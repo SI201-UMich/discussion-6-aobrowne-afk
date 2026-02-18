@@ -135,7 +135,14 @@ class HorseRaces:
             A dictionary with each horse and their average time.
             EXAMPLE: {'Gold Ship': 16.5, 'Daiwa Scarlet': 17.2}
         '''
-        pass
+        d = {}
+        for horse, info in self.race_dict.items():
+            sum = 0.0
+            for time in info.values():
+                sum += time
+            avg = sum/len(info)
+            d[horse] = avg
+        return d
 
 ###############################################################################
 ##### DO NOT MODIFY THE UNIT TESTS BELOW!
