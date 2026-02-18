@@ -111,7 +111,17 @@ class HorseRaces:
             A dictionary of tuples of each horse, with their fastest race and time.
             EXAMPLE: {"Oguri Cap": ("Tenno Sho Fall", 16.6), "Mejiro McQueen": ("Tenno Sho Fall", 16.1)}
         '''
-        pass
+        d = {}
+        for horse, info in self.race_dict.items():
+            fastest_race = ""
+            fastest_time = 100
+            for race, time in info.items():
+                if time < fastest_time:
+                    fastest_time = time
+                    fastest_race = race
+            d[horse] = (fastest_race, fastest_time)
+        return d
+
 
 ###############################################################################
 ##### TASK 4
